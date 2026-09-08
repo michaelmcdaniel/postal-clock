@@ -1,5 +1,7 @@
 # Postal Clock firmware
 
+![Postal Clock](https://raw.githubusercontent.com/michaelmcdaniel/postal-clock/main/images/clock.jpg)
+
 Arduino-Pico C++ firmware for the Raspberry Pi Pico 2 W postal-box nightstand clock.
 
 ## Hardware values preserved from `python/main.py`
