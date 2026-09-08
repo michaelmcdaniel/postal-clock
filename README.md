@@ -1,8 +1,70 @@
 # Postal Clock firmware
 
-![Postal Clock](https://raw.githubusercontent.com/michaelmcdaniel/postal-clock/main/images/clock.jpg)
+![Finished Postal Clock](https://raw.githubusercontent.com/michaelmcdaniel/postal-clock/main/images/clock.jpg)
 
-Arduino-Pico C++ firmware for the Raspberry Pi Pico 2 W postal-box nightstand clock.
+An antique U.S. Post Office box door and coin bank, rebuilt as a dependable
+nightstand clock. The original brass hardware, combination lock, glass window,
+coin slot, and coin-storage space remain usable; the modern electronics are
+hidden behind the postal-box window.
+
+The firmware runs on a Raspberry Pi Pico 2 W. It presents a simple high-
+contrast OLED clock, keeps time from a battery-backed DS3231 RTC, dims itself
+for a dark room, and adds local NWS weather when Wi-Fi is available. It is
+designed to remain a clock—not a network appliance—when the Internet is down.
+
+## At a glance
+
+- Large, readable time, date, day of week, current outdoor temperature, and
+  compact forecast on a 128×64 monochrome OLED.
+- DS3231-backed local time: the display works without Wi-Fi after setup.
+- Automatic display dimming from a photocell.
+- Phone-friendly first-boot setup at the `PostalClock-Setup` Wi-Fi access
+  point; no app required.
+- NWS weather and occasional NTP correction are optional enhancements, never
+  prerequisites for displaying the time.
+- Wi-Fi retries, weather retrieval, and TLS work run away from the critical
+  display/RTC loop. A watchdog recovers from an unexpected main-loop stall.
+- A short press of the concealed information button shows weather/network
+  diagnostics; holding it for ten seconds deliberately clears configuration.
+
+## Gallery
+
+| Finished clock | Electronics behind the postal door |
+| --- | --- |
+| ![Postal Clock front](https://raw.githubusercontent.com/michaelmcdaniel/postal-clock/main/images/clock.jpg) | ![Postal Clock internals](https://raw.githubusercontent.com/michaelmcdaniel/postal-clock/main/images/internals.jpg) |
+
+## First use
+
+1. Power the clock. With no saved configuration it shows a setup screen and
+   creates the open `PostalClock-Setup` Wi-Fi network.
+2. Join that network from a phone or computer and open `http://192.168.4.1/`
+   if the captive page does not appear automatically.
+3. Choose or enter the home Wi-Fi network, password, timezone, contact email,
+   and a four-character NWS station identifier such as `KMBT`.
+4. Save. The clock restarts into normal operation and continues to show local
+   time even if Wi-Fi or weather service later becomes unavailable.
+
+## Hardware
+
+| Component | Role / connection |
+| --- | --- |
+| Raspberry Pi Pico 2 W | Controller and Wi-Fi |
+| SH1106 128×64 OLED | I2C0 — SDA GP0, SCL GP1 |
+| DS3231 RTC | I2C1 — SDA GP6, SCL GP7 |
+| Photocell / LDR | ADC GP26 |
+| Information/reset button | GP8 to ground, internal pull-up |
+
+GP3 and GP4 are deliberately unused on this board. Confirm that the installed
+DS3231 module’s I2C pull-ups are powered from a Pico-safe 3.3 V rail.
+
+## How it stays reliable
+
+The DS3231 is the authoritative clock. The Pico displays its time immediately
+at boot, while Wi-Fi connects independently in the background. Slow DNS, HTTPS,
+weather JSON, and NTP work execute on the second core; the first core owns the
+OLED, RTC, brightness sensor, controls, and watchdog. Failed weather requests
+leave the last good temperature visible and marked stale rather than blanking
+the display.
 
 ## Hardware values preserved from `python/main.py`
 
