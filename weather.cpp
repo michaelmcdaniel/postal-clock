@@ -294,6 +294,12 @@ bool WeatherService::fetchJson(const char* url, JsonDocument& filter,
     Serial.println(error.c_str());
     return false;
   }
+  // A completed request supersedes any previous transport failure. Keep the
+  // diagnostics truthful instead of displaying a stale DNS/TLS error beside
+  // fresh weather data.
+  lastFailedRequest_[0] = '\0';
+  lastTlsError_ = 0;
+  lastTlsErrorText_[0] = '\0';
   snprintf(lastTransportDetail_, sizeof(lastTransportDetail_),
            "HTTP 200; %d byte response", contentLength);
   return true;
