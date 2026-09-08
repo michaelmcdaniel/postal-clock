@@ -1,0 +1,19 @@
+{
+  "schema_version": 5,
+  "wifi": {
+    "ssid": "ExampleNetwork",
+    "password": "replace-on-device"
+  },
+  "timezone": "America/Chicago",
+  "contact_email": "",
+  "weather": {
+    "station_id": "KMBT",
+    "refresh_minutes": 60
+  },
+  "display": {
+    "brightness_min": 1,
+    "brightness_max": 255,
+    "light_cutoff": 300
+  },
+  "debug_logging": true
+}
