@@ -2,7 +2,7 @@
 
 ![Finished Postal Clock](https://raw.githubusercontent.com/michaelmcdaniel/postal-clock/main/images/clock.jpg)
 
-An antique U.S. Post Office box door and coin bank, rebuilt as a dependable
+An antique U.S. Post Office box door and coin bank (by Sam Criswell), rebuilt as a dependable
 nightstand clock. The original brass hardware, combination lock, glass window,
 coin slot, and coin-storage space remain usable; the modern electronics are
 hidden behind the postal-box window.
