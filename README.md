@@ -129,22 +129,14 @@ While the clock is connected to Wi-Fi, its configuration page is also available 
 
 The forecast low/high appears at the upper right when the next two NWS forecast periods contain one daytime and one nighttime period. Period order is preserved; `isDaytime` decides which value is the high and which is the low.
 
-The lower-right Wi-Fi icon blinks while the station is connecting or waiting for its next retry. Once connected, one, two, or three arcs indicate weak (below -70 dBm), medium (-70 through -56 dBm), or strong (-55 dBm and above) signal. NTP queries `time.nist.gov` with a 48-byte version-3 client request, validates the response, applies its fractional timestamp to the system clock, and rounds to the nearest whole second only when the DS3231 needs correction.
+Wi-Fi connection status is represented by the degrees symbol next to the current time.  The symbol will blink while connecting and once the connection is up, it will hold steady.  If the symbol is ever missing - then the Wi-Fi connection has dropped.
+
+NTP queries `time.nist.gov` with a 48-byte version-3 client request, validates the response, applies its fractional timestamp to the system clock, and rounds to the nearest whole second only when the DS3231 needs correction.
 
 Do not commit a real `/config.json` or credentials. LittleFS data is provisioned on the device, not from this repository.
 
 
 ## Harvested weather detail
+Weather data is accessible via a online page - https://<ip-address>/weather
 
-Software 1.0.39 retains additional fields from the latest NWS station
-observation without making extra requests: relative humidity, wind speed and
-direction, barometric pressure, heat-index/wind-chill based "feels like", and
-precipitation during the last hour. NWS metric values are converted to familiar
-display units (F, mph, inHg, and inches). Pressure is also shown as a signed
-difference from standard sea-level pressure (29.92 inHg).
-
-The first short press of the GP8 information button shows a compact weather
-snapshot on the OLED. The normal connected configuration page also links to
-`/weather`, which renders the latest core-0 weather snapshot. Loading that page
-does not trigger a NOAA request, so web viewing cannot stall or increase the
-weather polling rate.
+The internal information pages (via GP8 internal button) also display a small collection of weather harvested data related information.
