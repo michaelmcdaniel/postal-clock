@@ -426,7 +426,7 @@ The actual installed module should determine whether it is powered from 3.3V or 
 
 ## Working Method
 
-Every firmware or user-visible project change must increment `kSoftwareVersion` in `Clock2.ino`. Do not reuse a version number after changing code, configuration behavior, display output, or web UI. Documentation-only changes that alter project requirements should also bump the version unless the user explicitly says otherwise. Compile the incremented version so the generated UF2 and splash-screen version always identify the exact current build.
+Every firmware or user-visible project change must increment `kSoftwareVersion` in `postal-clock.ino`. Do not reuse a version number after changing code, configuration behavior, display output, or web UI. Documentation-only changes that alter project requirements should also bump the version unless the user explicitly says otherwise. Compile the incremented version so the generated UF2 and splash-screen version always identify the exact current build.
 
 Before substantial code changes:
 
