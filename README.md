@@ -29,9 +29,9 @@ designed to remain a clock—not a network appliance—when the Internet is down
 
 ## Gallery
 
-| Finished clock | Electronics behind the postal door |
-| --- | --- |
-| ![Postal Clock front](https://raw.githubusercontent.com/michaelmcdaniel/postal-clock/main/images/clock.jpg) | ![Postal Clock internals](https://raw.githubusercontent.com/michaelmcdaniel/postal-clock/main/images/internals.jpg) |
+| Finished clock | Electronics behind the postal door | 3D model |
+| --- | --- | --- |
+| ![Postal Clock front](https://raw.githubusercontent.com/michaelmcdaniel/postal-clock/main/images/clock.jpg) | ![Postal Clock internals](https://raw.githubusercontent.com/michaelmcdaniel/postal-clock/main/images/internals.jpg) | ![Postal Clock 3D model](https://raw.githubusercontent.com/michaelmcdaniel/postal-clock/main/images/3dModel.png) |
 
 ## First use
 

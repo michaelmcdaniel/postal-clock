@@ -16,7 +16,7 @@
 #include "wifi_manager.h"
 
 namespace {
-constexpr char kSoftwareVersion[] = "1.0.53";
+constexpr char kSoftwareVersion[] = "1.0.54";
 constexpr uint32_t kSplashDurationMs = 5000;
 constexpr uint32_t kWatchdogTimeoutMs = 8000;
 
