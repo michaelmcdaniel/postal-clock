@@ -137,6 +137,6 @@ Do not commit a real `/config.json` or credentials. LittleFS data is provisioned
 
 
 ## Harvested weather detail
-Weather data is accessible via a online page - https://<ip-address>/weather
+Weather data is accessible via a online page - `http://<clock-ip>/weather`
 
 The internal information pages (via GP8 internal button) also display a small collection of weather harvested data related information.
